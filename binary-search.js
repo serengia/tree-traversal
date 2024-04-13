@@ -20,3 +20,4 @@ function binarySearch(arr, value) {
 
 const sortedArr = [2, 4, 5, 6, 8, 9, 12, 14, 15];
 console.log(binarySearch(sortedArr, 16));
+console.log(binarySearch(sortedArr, 5));
