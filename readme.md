@@ -1,4 +1,4 @@
-# Tree Traversal & Binary search implementation
+# Tree Traversal & Binary Heap Implementation
 
 Implementation for Tree traversal and Binary search
 
