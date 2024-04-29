@@ -1,12 +1,12 @@
-function binarySearch(arr, value) {
+function binarySearch(sortedArr, value) {
   let left = 0;
-  let right = arr.length - 1;
+  let right = sortedArr.length - 1;
   let mid = Math.floor((left + right) / 2);
 
   while (left <= right) {
-    if (value === arr[mid]) {
+    if (value === sortedArr[mid]) {
       return mid;
-    } else if (value < arr[mid]) {
+    } else if (value < sortedArr[mid]) {
       right = mid - 1;
     } else {
       left = mid + 1;
@@ -14,10 +14,12 @@ function binarySearch(arr, value) {
 
     mid = Math.floor((left + right) / 2);
   }
-
   return -1;
 }
 
-const sortedArr = [2, 4, 5, 6, 8, 9, 12, 14, 15];
-console.log(binarySearch(sortedArr, 16));
-console.log(binarySearch(sortedArr, 5));
+const arr = [2, 3, 5, 6, 8, 9, 13, 16, 18];
+
+// console.log(binarySearch(arr, 2));
+// console.log(binarySearch(arr, 18));
+// console.log(binarySearch(arr, 20));
+// console.log(binarySearch(arr, 0));

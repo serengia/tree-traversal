@@ -12,8 +12,7 @@ class BST {
   }
 
   insert(value) {
-    let newNode = new Node(value);
-
+    const newNode = new Node(value);
     if (!this.root) {
       this.root = newNode;
       return this;
@@ -21,7 +20,7 @@ class BST {
 
     let currentNode = this.root;
 
-    while (true) {
+    while (currentNode) {
       if (value < currentNode.value) {
         if (!currentNode.left) {
           currentNode.left = newNode;
@@ -36,9 +35,7 @@ class BST {
         } else {
           currentNode = currentNode.right;
         }
-      }
-
-      if (currentNode.value === value) {
+      } else {
         console.log("Value already exist");
         return undefined;
       }
@@ -46,7 +43,7 @@ class BST {
   }
 
   find(value) {
-    if (!this.root) return false;
+    if (!this.root) return undefined;
 
     let currentNode = this.root;
 
@@ -58,17 +55,19 @@ class BST {
         currentNode = currentNode.right;
       }
     }
+
     return false;
   }
 
   BFS() {
     if (!this.root) return undefined;
-    const queue = [];
     const data = [];
+    const queue = [];
+
     queue.push(this.root);
 
-    while (queue.length !== 0) {
-      const node = queue.pop();
+    while (queue.length > 0) {
+      let node = queue.pop();
       data.push(node.value);
       if (node.left) queue.push(node.left);
       if (node.right) queue.push(node.right);
@@ -79,7 +78,8 @@ class BST {
 
   DFSPreOrder() {
     if (!this.root) return undefined;
-    const data = [];
+    let data = [];
+
     function traverse(node) {
       data.push(node.value);
       if (node.left) traverse(node.left);
@@ -93,7 +93,8 @@ class BST {
 
   DFSPostOrder() {
     if (!this.root) return undefined;
-    const data = [];
+    let data = [];
+
     function traverse(node) {
       if (node.left) traverse(node.left);
       if (node.right) traverse(node.right);
@@ -107,7 +108,8 @@ class BST {
 
   DFSInOrder() {
     if (!this.root) return undefined;
-    const data = [];
+    let data = [];
+
     function traverse(node) {
       if (node.left) traverse(node.left);
       data.push(node.value);
@@ -120,27 +122,25 @@ class BST {
   }
 }
 
-//        10
-//    7        17
-//  3   8    12  22
+//       10
+//     6      16
+//  3    9  12    19
 
 const myTree = new BST();
 myTree.insert(10);
-myTree.insert(7);
-myTree.insert(17);
+myTree.insert(6);
+myTree.insert(16);
 myTree.insert(3);
-myTree.insert(8);
+myTree.insert(9);
 myTree.insert(12);
-myTree.insert(22);
-// console.log(myTree.insert(22));
-console.log(myTree.find(10));
-console.log(myTree.find(7));
-console.log(myTree.find(4));
+myTree.insert(19);
+// console.log(myTree.insert(19));
+// console.log(myTree.find(10));
+// console.log(myTree.find(19));
+// console.log(myTree.find(0));
+// console.log(myTree.find(-13));
 
-console.log(myTree.find(5));
-console.log(myTree.find(12));
-
-console.log(myTree.BFS());
-console.log(myTree.DFSPreOrder());
-console.log(myTree.DFSPostOrder());
-console.log(myTree.DFSInOrder());
+// console.log(myTree.BFS());
+// console.log(myTree.DFSPreOrder());
+// console.log(myTree.DFSPostOrder());
+// console.log(myTree.DFSInOrder());
