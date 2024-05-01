@@ -70,6 +70,10 @@ class LinkedList {
     newNode.next = nextNode;
     return this;
   }
+
+  remove(index) {
+    if (!this.head) return undefined;
+  }
 }
 
 const list = new LinkedList();
