@@ -102,6 +102,22 @@ class LinkedList {
 
     return nodeToRemove.value;
   }
+
+  reverse() {
+    let prevNode = null;
+    let currentNode = this.head;
+    let nextNode = null;
+
+    while (currentNode) {
+      nextNode = currentNode.next;
+      currentNode.next = prevNode;
+
+      prevNode = currentNode;
+      currentNode = nextNode;
+    }
+    this.tail = this.head;
+    this.head = prevNode;
+  }
 }
 
 const list = new LinkedList();
@@ -111,8 +127,10 @@ list.append(13);
 // list.prepend(30);
 list.insert(2, 15);
 list.insert(10, 41);
+// list.printList();
+// list.remove(10);
 list.printList();
-list.remove(10);
+list.reverse();
 list.printList();
 // console.log(list.search(11));
 // console.log(list.search(13));
