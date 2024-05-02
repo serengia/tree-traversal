@@ -71,7 +71,22 @@ class LinkedList {
     return this;
   }
 
-  remove(index) {
+  search(value) {
+    if (!this.head) return undefined;
+
+    let currentNode = this.head;
+
+    while (currentNode) {
+      if (currentNode.value === value) {
+        return true;
+      }
+      currentNode = currentNode.next;
+    }
+
+    return false;
+  }
+
+  remove() {
     if (!this.head) return undefined;
   }
 }
@@ -84,3 +99,5 @@ list.append(13);
 list.insert(2, 15);
 list.insert(10, 41);
 list.printList();
+console.log(list.search(11));
+console.log(list.search(13));
