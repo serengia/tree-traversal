@@ -86,8 +86,21 @@ class LinkedList {
     return false;
   }
 
-  remove() {
-    if (!this.head) return undefined;
+  remove(index) {
+    if (!this.head || index > this.length) return undefined;
+
+    let prevNode = this.head;
+    let count = 0;
+
+    while (count < index - 1) {
+      prevNode = prevNode.next;
+      count++;
+    }
+
+    const nodeToRemove = prevNode.next;
+    prevNode.next = nodeToRemove.next;
+
+    return nodeToRemove.value;
   }
 }
 
@@ -99,5 +112,7 @@ list.append(13);
 list.insert(2, 15);
 list.insert(10, 41);
 list.printList();
-console.log(list.search(11));
-console.log(list.search(13));
+list.remove(10);
+list.printList();
+// console.log(list.search(11));
+// console.log(list.search(13));
