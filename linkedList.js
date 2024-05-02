@@ -112,6 +112,7 @@ class LinkedList {
       nextNode = currentNode.next;
       currentNode.next = prevNode;
 
+      //   Move pointer ahead
       prevNode = currentNode;
       currentNode = nextNode;
     }
