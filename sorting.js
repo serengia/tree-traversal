@@ -1,13 +1,13 @@
 function bubbleSort(arr) {
   const length = arr.length;
 
-  for (let i = 0; i < length; i++) {
-    for (let j = i + 1; j < length; j++) {
-      if (arr[i] > arr[j]) {
+  for (let i = length; i > 0; i--) {
+    for (let j = 0; j < i - 1; j++) {
+      if (arr[j] > arr[j + 1]) {
         // Swap
-        const temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
+        const temp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = temp;
       }
     }
   }
