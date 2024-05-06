@@ -57,7 +57,7 @@ function insertionSort(arr) {
   return arr;
 }
 
-// console.log(insertionSort(testArr));
+console.log(insertionSort(testArr));
 
 function merge(arr1, arr2) {
   const result = [];
@@ -80,13 +80,16 @@ function merge(arr1, arr2) {
   }
 
   while (j < arr2.length) {
-    result.push(arr1[j]);
+    result.push(arr2[j]);
     j++;
   }
+
+  return result;
 }
 
 function mergeSort(arr) {
-  let mid = Math.floor(arr.length);
+  if (arr.length <= 1) return arr;
+  let mid = Math.floor(arr.length / 2);
   const left = mergeSort(arr.slice(0, mid));
   const right = mergeSort(arr.slice(mid));
 
